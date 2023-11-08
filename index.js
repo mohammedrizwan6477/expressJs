@@ -3,7 +3,12 @@ const express = require('express');
 const morgan = require('morgan');
 const colors = require('colors');
 const bodyParser = require('body-parser');
-const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes');
+const connectDB = require('./config/db');
+
+//mongodb function call
+connectDB()
+
 //res obj
 const app = express();
 
