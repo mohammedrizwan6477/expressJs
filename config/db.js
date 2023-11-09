@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 const colors = require('colors');
 
-//function connect mongodb data base
-
 const connectDB = async () => {
-    try{
-        const conn = await mongoose.connect('mongodb://127.0.0.1:27017/expressJs')
-        console.log(`server connected with mongodb`.bgGreen)
-    }catch(err){
-        console.log(`Mongodb Error ${err.message}`.bgRed);
+    try {
+        await mongoose.connect('mongodb://127.0.0.1:27017/expressJs', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+
+        console.log('MongoDB connected successfully'.bgGreen);
+    } catch (err) {
+        console.error(`MongoDB connection error: ${err.message}`.bgRed);
         process.exit(1);
     }
-}
-module.exports = connectDB
+};
+
+module.exports = connectDB;

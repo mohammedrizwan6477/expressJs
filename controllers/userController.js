@@ -11,5 +11,8 @@ const addUser =(req,res)=>{
         message:`Welcome ${ inputData }`
     })
 }
+const createUser =(req,res)=>{
+    //
+}
 
-module.exports = { getUser,addUser }
+module.exports = { getUser,addUser,createUser }
